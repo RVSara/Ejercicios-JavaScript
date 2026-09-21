@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora</title>
+</head>
+
+<script>
+  alert("¡Bienvenid@ a la calculadora!");
+  const x = Number(prompt("Introduce el primer número:"));
+  let op = prompt("Introduce uno de los operadores válidos:\n+ = suma\n- = resta\n* = multiplicación\n/ = división");
+  const y = Number(prompt("Introduce el segundo número:"));
+  confirm(`¿${x} ${op} ${y}?`);
+
+  let result = () => {
+      switch (op) {
+        case "+":
+          return `${x} ${op} ${y} = ${x + y}`;
+        case "-":
+          return `${x} ${op} ${y} = ${x - y}`;
+        case "*":
+          return `${x} ${op} ${y} = ${x * y}`;
+        case "/":
+          return `${x} ${op} ${y} = ${x / y}`;
+        default:
+          return "No has introducido un operador válido. Actualiza e inténtalo de nuevo.";
+      }
+    }
+
+  alert(result());
+</script>
+</html>

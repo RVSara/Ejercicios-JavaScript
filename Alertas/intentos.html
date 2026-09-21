@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tres intentos</title>
+</head>
+
+<script>
+  const num = Math.floor(Math.random() * 10) + 1;
+  alert(`¡Presta atención! Tu número de la suerte de hoy es el ${num}.`);
+  let suerte = prompt("¿Cuál es el número de la suerte de hoy?");
+  
+  let i = 1;
+  let respuesta = () => {
+    while (suerte != num && i < 3) {
+        i++;
+        suerte = prompt(`(Intento nº${i}) Prueba otra vez: ¿Cuál es el número de la suerte?`);
+      }
+    if (suerte == num) {
+        return "¡Felicidades! Habla con el profesor para recibir tu premio.";
+      } else return "¡Te has quedado sin intentos! Actualiza e inténtalo de nuevo.";
+  }
+
+  alert(respuesta());
+</script>
+
+</html>

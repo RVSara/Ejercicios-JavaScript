@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reserve su viaje</title>
+</head>
+
+<script>
+  const numNoches = Number(prompt("Introduzca el número de noches que estará fuera:"));
+  const destino = prompt("Introduzca el destino de su viaje:");
+
+  const costeHotel = (num) => {
+    const hotel = num * 140;
+    return hotel;
+  }
+
+  const costeAvion = (ciudad, num) => {
+    let avion;
+    switch (ciudad) {
+      case "Oviedo":
+        avion = 15 * num;
+        break;
+      case "Tokyo":
+        avion = 700 * num;
+        break;
+      case "Madrid":
+        avion = 90 * num;
+        break;
+      case "Barcelona":
+        avion = 90 * num;
+        break;
+      default:
+        return "Error: La agencia no cubre este destino.";
+    }
+    if (num >= 3) {
+      return avion * 0.9;
+    } else return avion;
+  }
+
+  const costeAlquilerCoche = (num) => {
+    const coche = num * 40;
+    if (num >= 3 && num < 7) {
+      return coche - 20;
+    } else if (num >= 7) {
+      return coche - 50;
+    } else return coche;
+  }
+
+  const resultado1 = costeHotel(numNoches);
+  const resultado2 = costeAvion(destino, numNoches);
+  const resultado3 = costeAlquilerCoche(numNoches);
+  const hotel = `Coste hotel: ${resultado1}€`;
+  const viaje = `Coste viaje: ${resultado2}€`;
+  const coche = `Coste alquiler coche: ${resultado3}€`;
+  const total = `Total: ${resultado1 + resultado2 + resultado3}€`;
+
+  if (typeof resultado2 !== "number") {
+    alert(resultado2);
+    } else alert(`${hotel}\n${viaje}\n${coche}\n${total}\n`);
+</script>
+</html>

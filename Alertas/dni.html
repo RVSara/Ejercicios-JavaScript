@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DNI</title>
+</head>
+
+<script>
+  let dni = Number(prompt("Introduce los 8 números de tu DNI:"));
+  const letra = "TRWAGMYFPDXBNJZSQVHLCKE";
+  const count = Math.floor(Math.random() * letra.length);
+  const getDNILetter = () => {
+    if (String(dni).length == 8 && typeof dni == "number") {
+      return "DNI detectado por el sistema: " + dni + letra[count];
+    } else {
+      return "Tu DNI no es válido. Actualiza e inténtalo de nuevo.";
+    }
+  }
+
+  confirm(getDNILetter());
+</script>
+</html>
