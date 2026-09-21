@@ -8,11 +8,12 @@
 
 <script>
   const mensaje = "Introduce tu nombre, por favor:";
-  const nombre = prompt(mensaje);
+  let nombre = prompt(mensaje);
   const restart = () => {
     const fallo = "Tu respuesta es inválida. Reinicia el proceso.";
     alert(fallo);
-    prompt(mensaje);
+    nombre = prompt(mensaje);
+    formulario();
   }
   const formulario = () => {
     switch(nombre){
