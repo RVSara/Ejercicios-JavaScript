@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Identifícate</title>
+</head>
+
+<script>
+  const mensaje = "Introduce tu nombre, por favor:";
+  let nombre = prompt(mensaje);
+  const formulario = () => {
+    while(/\d/.test(nombre) == true) {
+      const fallo = "Tu respuesta es inválida. Reinicia el proceso.";
+      alert(fallo);
+      nombre = prompt(mensaje);
+    }
+    const registro = prompt(`¿Tu nombre es ${nombre}?\nYes/No`);
+    if (registro == "Yes") {
+      return alert(
+        "¡Felicidades! Tu nombre ha sido registrado correctamente."
+      );
+    } else formulario(nombre = 1);
+  }
+
+  formulario();
+</script>
+
+</html>
