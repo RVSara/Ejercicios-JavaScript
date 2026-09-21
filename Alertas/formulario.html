@@ -8,28 +8,26 @@
 
 <script>
   const mensaje = "Introduce tu nombre, por favor:";
-  let nombre = prompt(mensaje);
-  const restart = () => {
-    const fallo = "Tu respuesta es inválida. Reinicia el proceso.";
-    alert(fallo);
-    nombre = prompt(mensaje);
-    formulario();
-  }
-  const formulario = () => {
-    switch(nombre){
-      case nombre.includes("[1,2,3,4,5,6,7,8,9,0]"):
+    let nombre = prompt(mensaje);
+    const restart = () => {
+      const fallo = "Tu respuesta es inválida. Reinicia el proceso.";
+      alert(fallo);
+      nombre = prompt(mensaje);
+      formulario(nombre);
+    };
+
+    const formulario = () => {
+      if (/\d/.test(nombre)) {
         restart();
-        break;
-      case typeof nombre == "string":
+      } else {
         const registro = prompt(`¿Tu nombre es ${nombre}?\nYes/No`);
-        if(registro == "Yes"){
-          return "¡Felicidades! Tu nombre ha sido registrado correctamente.";
-        } else restart();
-        break;
-      default:
-        restart();
-    }
-  }
+        if (registro == "Yes") {
+        return alert(
+          "¡Felicidades! Tu nombre ha sido registrado correctamente."
+        );
+      } else restart();
+      }
+    };
   
   formulario(nombre);
 </script>
