@@ -326,5 +326,5 @@ console.log(variable >= 0 || variable <= dos); // true
 
 /* ---------- SWITCH ---------- */
 
-// Un condicional switch funciona de manera similar a if/else, y
-// es útil para considerar varios valores posibles
+// Un condicional switch funciona de manera similar a if/else, y es útil
+// para considerar varios valores posibles para una misma variable.
