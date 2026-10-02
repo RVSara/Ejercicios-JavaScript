@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trivia</title>
+</head>
+
+<script>
+    const trivia = [
+      "¿El fuego quema?-true",
+      "¿La tierra es plana?-false",
+      "¿JavaScript es fácil?-false",
+      "¿Te apetece tomar un helado?-true",
+    ];
+    const n = Math.floor(Math.random() * trivia.length);
+    const pregunta = trivia[n];
+    const textoPregunta = pregunta.slice(0, pregunta.indexOf("-"));
+    const respuesta = pregunta.slice(pregunta.indexOf("-")+1);
+
+    alert("Si aciertas esta pregunta, ganarás muchísimo dinero. ¡Comencemos!");
+    const correcto = String(confirm(textoPregunta));
+    let concurso = () => {
+      if (correcto == respuesta) {
+        return alert("¡Felicidades! Habla con el profesor para recibir tu premio.");        
+      } else return alert("¡Te has equivocado! Actualiza e inténtalo de nuevo.");
+    }
+
+    concurso();
+</script>
+
+</html>
