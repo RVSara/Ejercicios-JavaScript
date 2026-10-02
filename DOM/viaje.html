@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reserve su viaje</title>
+</head>
+
+<body>
+  <fieldset>
+    <label for="reserva">Introduzca el número de noches:</label>
+    <input type="number" id="reserva" required />
+    <select id="reserva" required>
+      <option>Oviedo</option>
+      <option>Tokyo</option>
+      <option>Madrid</option>
+      <option>Barcelona</option>
+    </select>
+    <button onclick="calculateCost()">Calcular coste</button>
+  </fieldset>
+  <fieldset>
+    <label for="hotel">Coste hotel:</label>
+    <output id="hotel"></output>
+    <br />
+    <label for="viaje">Coste viaje:</label>
+    <output id="viaje"></output>
+    <br />
+    <label for="coche">Coste alquiler coche:</label>
+    <output id="coche"></output>
+    <br />
+    <label for="total">Coste total:</label>
+    <output id="total"></output>
+  </fieldset>
+</body>
+
+<script>
+    const calculateCost = () => {
+      const numNoches = document.querySelector('input[type="number"]').value;
+      const destino = document.querySelector("select option:checked").innerHTML;
+
+      console.log(numNoches);
+      console.log(destino);
+
+      const costeHotel = (num) => {
+        const hotel = num * 140;
+        return hotel;
+      }
+
+      const costeAvion = (ciudad, num) => {
+        let avion;
+        switch (ciudad) {
+          case "Oviedo":
+            avion = 15 * num;
+            break;
+          case "Tokyo":
+            avion = 700 * num;
+            break;
+          case "Madrid":
+            avion = 90 * num;
+            break;
+          case "Barcelona":
+            avion = 90 * num;
+            break;
+        }
+        if (num >= 3) {
+          return avion * 0.9;
+        } else return avion;
+      }
+
+      const costeAlquilerCoche = (num) => {
+        const coche = num * 40;
+        if (num >= 3 && num < 7) {
+          return coche - 20;
+        } else if (num >= 7) {
+          return coche - 50;
+        } else return coche;
+      }
+
+      const resultado1 = costeHotel(numNoches);
+      const resultado2 = costeAvion(destino, numNoches);
+      const resultado3 = costeAlquilerCoche(numNoches);
+      const total = resultado1 + resultado2 + resultado3;
+
+      document.querySelector("#hotel").value = resultado1;
+      document.querySelector("#viaje").value = resultado2;
+      document.querySelector("#coche").value = resultado3;
+      document.querySelector("#total").value = total;
+    }
+</script>
+</html>
