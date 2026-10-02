@@ -9,7 +9,9 @@
 <script>
   let dni = Number(prompt("Introduce los 8 números de tu DNI:"));
   const letra = "TRWAGMYFPDXBNJZSQVHLCKE";
-  const count = Math.floor(Math.random() * letra.length);
+  // const count = Math.floor(Math.random() * letra.length);
+  const count = dni%23; // No es aleatorio!
+  
   const getDNILetter = () => {
     if (String(dni).length == 8 && typeof dni == "number") {
       return "DNI detectado por el sistema: " + dni + letra[count];

@@ -6,31 +6,28 @@
   <title>Calculadora</title>
 </head>
 
-<body>
-  <input type="text" id="n1" />
-  <input type="text" id="op" />
-  <input type="text" id="n2" />
-  <button onClick="calcular()">Calcular</button>
-  <p id="result"></p>
-</body>
-
 <script>
-  const calcular = () => {
-    const n1 = Number(document.querySelector("#n1").value);
-    const n2 = Number(document.querySelector("#n2").value);
-    const op = document.querySelector("#op").value;
+  alert("¡Bienvenid@ a la calculadora!");
+  const x = Number(prompt("Introduce el primer número:"));
+  let op = prompt("Introduce uno de los operadores válidos:\n+ = suma\n- = resta\n* = multiplicación\n/ = división");
+  const y = Number(prompt("Introduce el segundo número:"));
+  confirm(`¿${x} ${op} ${y}?`);
 
-    let r;
-    if (op === "+") {
-      r = n1 + n2;
-    } else if (op === "-") {
-      r = n1 - n2;
-    } else if (op === "*") {
-      r = n1 * n2;
-    } else if (op === "/") {
-      r = n1 / n2;
+  let result = () => {
+      switch (op) {
+        case "+":
+          return `${x} ${op} ${y} = ${x + y}`;
+        case "-":
+          return `${x} ${op} ${y} = ${x - y}`;
+        case "*":
+          return `${x} ${op} ${y} = ${x * y}`;
+        case "/":
+          return `${x} ${op} ${y} = ${x / y}`;
+        default:
+          return "No has introducido un operador válido. Actualiza e inténtalo de nuevo.";
+      }
     }
-    document.querySelector("#result").innerHTML = r;
-  };
+
+  alert(result());
 </script>
 </html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora</title>
+</head>
+
+<body>
+  <fieldset>
+    <input type="number" id="n1" />
+    <select>
+      <option>+</option>
+      <option>-</option>
+      <option>*</option>
+      <option>/</option>
+    </select>
+    <input type="number" id="n2" />
+    <button onClick="calcular()">Calcular</button>
+    <output></output>
+  </fieldset>
+</body>
+
+<script>
+  const calcular = () => {
+    const n1 = Number(document.querySelector("#n1").value);
+    const n2 = Number(document.querySelector("#n2").value);
+    const op = document.querySelector("select option:checked").innerHTML;
+
+    let r;
+    if (op === "+") {
+      r = n1 + n2;
+    } else if (op === "-") {
+      r = n1 - n2;
+    } else if (op === "*") {
+      r = n1 * n2;
+    } else if (op === "/") {
+      r = n1 / n2;
+    }
+    document.querySelector("output").value = r;
+  };
+</script>
+</html>

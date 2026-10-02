@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Convertidor de divisas</title>
+</head>
+
+<body>
+  <fieldset><label>Euros: </label><input type="number" /></fieldset>
+  <fieldset><label>Dólares: </label><output></output></fieldset>
+  <button>Calcular</button>
+</body>
+
+<script>
+  const convertir = () => {
+    const euros = document.querySelector("input").value;
+    const dolares = euros*2;
+    document.querySelector('output').value = dolares;
+  }
+  document.querySelector("button").addEventListener('click', convertir);
+</script>
+</html>

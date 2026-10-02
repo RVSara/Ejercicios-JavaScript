@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ahorcado</title>
+</head>
+
+<script>
+  const posiblesPalabras = ["editor", "agujero", "clasificar", "programa"];
+  const alAzar = Math.floor(Math.random()*posiblesPalabras.length);
+  const secretWord = posiblesPalabras[alAzar];
+  let hiddenWord = secretWord.replace(/./g, "_ ");
+  const ahorcado = () => {
+    while(hiddenWord.includes("_ ")){
+      let letra = prompt(`${hiddenWord}\nIntroduce una letra, por favor:`);
+      for (i = 0; i < secretWord.length; i++) {
+        const replaceAt = (string, character, index) => {
+          return string.substring(0, index) + character + string.substring(index + character.length);
+        }
+        if (letra.toLowerCase() == secretWord[i]) {
+          hiddenWord = replaceAt(hiddenWord, letra.toUpperCase(), i * 2); // Multiplicamos la posición por 2 porque en un principio pusimos un guión bajo y un espacio en blanco por cada letra para poner los guiones y ahora tenemos en la palabra por guiones dos letras por cada letra de la palabra secreta.
+          
+        }
+      }
+    }
+    if (!hiddenWord.includes("_")) {
+      return alert(`${hiddenWord}\n¡Has ganado! La palabra era ${secretWord}.`)
+    }
+  }
+  ahorcado();
+
+</script>
+</html>

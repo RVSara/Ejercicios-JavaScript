@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reserva tu caja aquí</title>
+</head>
+
+<body>
+    <fieldset>
+      <label>Nombre del cliente:</label><br />
+      <input type="text" />
+    </fieldset>
+    <fieldset>
+      <label>Material de la caja:</label><br />
+      <select>
+        <option>Madera</option>
+        <option>Bambú</option>
+        <option>Plástico</option>
+        <option>Aluminio</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <p>Seleccione unas dimensiones para la caja:</p>
+      <input type="radio" name="dimensiones" value="1" /><label>Diminutas</label>
+      <input type="radio" name="dimensiones" value="1" /><label>Medianas</label>
+      <input type="radio" name="dimensiones" value="1" /><label>Grandes</label>
+    </fieldset>
+    <fieldset>
+      <label>Comentarios:</label><br />
+      <textarea></textarea>
+    </fieldset>
+    <button onclick="resumen()">Enviar</button>
+    <p></p>
+</body>
+
+<script>
+  const resumen = () => {
+    const nombre = document.querySelector('input[type="text"]').value;
+    const material = document.querySelector("select option:checked").innerHTML
+    const dimensiones = document.querySelector('input[type="radio"]:checked~label').innerHTML;
+    const comentarios = document.querySelector("textarea").value;
+    const frase = `${nombre} ha pedido una caja de ${material.toLowerCase()} con unas dimensiones ${dimensiones.toLowerCase()}. ${comentarios}`;
+    document.querySelector('body>p').innerHTML = frase;
+  }
+</script>
+</html>

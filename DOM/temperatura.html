@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Temperatura</title>
+</head>
+
+<body>
+  <fieldset><label>Grados centígrados: </label><input type="number" /></fieldset>
+  <fieldset><label>Grados Fahrenheit: </label><input type="number" /></fieldset>
+  <button onclick="convertir()" style="background-color: #ff0;">De Cº a Fº</button>
+  <button onclick="invertir()" style="background-color: #f00;">De Fº a Cº</button>
+</body>
+
+<script>
+  let centigrados;
+  let fahrenheit;
+  const convertir = () => {
+    centigrados = document.querySelector("fieldset:first-of-type input").value;
+    fahrenheit = centigrados * (9 / 5) + 32;
+    document.querySelector('fieldset:last-of-type input').value = fahrenheit;
+  }
+  const invertir = () => {
+    fahrenheit = document.querySelector('fieldset:last-of-type input').value;
+    centigrados = (fahrenheit - 32) * (5 / 9);
+    document.querySelector("fieldset:first-of-type input").value = centigrados;
+  }
+</script>
+</html>

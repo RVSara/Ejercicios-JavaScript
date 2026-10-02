@@ -16,7 +16,7 @@
   const getDNILetter = (number) => {
     let dni = Number(document.querySelector("#dni").value);
     const letra = "TRWAGMYFPDXBNJZSQVHLCKE";
-    const count = Math.floor(Math.random() * letra.length);
+    const count = dni % 23; // No es aleatorio!
     number = dni;
     let result;
     if (String(number).length == 8 && typeof number == "number") {
