@@ -19,7 +19,7 @@
     const count = dni % 23; // No es aleatorio!
     number = dni;
     let result;
-    if (String(number).length == 8 && typeof number == "number") {
+    if (String(number).length == 8 && !isNaN(number)) {
       result = "DNI detectado por el sistema: " + dni + letra[count];
     } else {
       result = "Tu DNI no es válido. Actualiza e inténtalo de nuevo.";
